@@ -4,9 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GuessTheNumber</title>
+    <link rel="stylesheet" href="styling.css">
 </head>
 <body>
-  <h1>guess the number</h1>
+  <h1>GUESS THE NUMBER</h1>
+  <hr  class="border border-primary border-3 opacity-75">
+  <div  id="regle">
+  <h3>The Rules</h3>
+  <p>
+    In this guessing number game , you will have to guess the number right
+    <br>
+    
+    <table>
+        <tr>
+            <td>Level</td>
+            <td>Interval</td>
+            <td>N of guesses</td>
+
+        </tr>
+        <tr>
+            <td>easy</td>
+            <td>0..15</td>
+            <td id="es">7</td>
+        </tr>
+        <tr>
+            <td>medium</td>
+            <td>0..20</td>
+            <td id="es">5</td>
+
+        </tr>
+        <tr>
+            <td>hard</td>
+            <td>0..50</td>
+            <td id="es">3</td>
+        </tr>
+
+    </table>
+    
+  </p> </div>
+  <div id="feyda">
   <form name="formulaire">
     <div>
     <label for="num">Your number</label>
@@ -19,11 +55,22 @@
     </div>
     <br> 
   </form>
-  <button id="press">press</button>
+  
+  <button class="bt" id="press">guess</button>
+  <br>
+  <br>
+  <button class="bt" id="retry">try again</button>
+  <br>
+  <br>
+  
+  <button class="bt" id="new">new game</button>
+  
   
   <br>
     <p><span id="output"></span></p> 
 
     <script src="scrip.js"></script>
+</div>
+<img src="OIP.jpg" id="image1">
 </body>
 </html>

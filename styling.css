@@ -1,0 +1,60 @@
+table,td,tr{
+    border:2px solid #236460;;
+    border-collapse: collapse;
+    
+}
+body{background-color:#f0ecf0;}
+    
+h1{
+    color:#5d375d;
+    margin :auto;
+   
+    width:350px;
+    
+}
+#regle{
+    color:#53074a;
+    
+}    
+#feyda
+{
+    
+    width:500px;
+    height:180px;
+    margin:auto;
+    border:3px  rgb(102, 151, 111) groove;
+    padding-left: 150px;
+    box-shadow: 6px 8px 7px;
+    margin-bottom: 30px;
+}
+#new{
+    position:absolute;
+    right:540px;
+    bottom:35%;
+
+    
+    
+}
+
+span{color: #206f6a;
+    position:relative;
+    bottom: 65px;
+    left:20px;
+}
+.bt{background-color: rgb(212, 227, 227);}
+
+#press{position:relative;
+    top:104px;
+    left:134px;
+
+}
+#retry{ position:relative;
+        top:65px;
+
+}
+#image1{
+    width:350px;
+    height:250px;
+    position:absolute;
+    left:37%;
+}

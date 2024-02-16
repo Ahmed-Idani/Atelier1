@@ -1,33 +1,60 @@
+var nb; // it's the number of attemps left in a single game
 function generate_Random(diffic)
 {let randomNumber;
-    
-if (diffic=="easy"){randomNumber = Math.floor(Math.random() * 10) + 1;}
-else if(diffic=="medium"){randomNumber = Math.floor(Math.random() * 20) + 1;}
-else{randomNumber = Math.floor(Math.random() * 50) + 1;}
+if (diffic=="easy"){randomNumber = Math.floor((Math.random()) * 15) + 1;}
+else if(diffic=="medium"){randomNumber = Math.floor((Math.random() )* 20) + 1;}
+else{randomNumber = Math.floor((Math.random() )* 50) + 1;}
+
 return randomNumber}
 
-
-var inputValue;
-const numInput=document.querySelector("#num");
-numInput.addEventListener("input",()=>inputValue=numInput.input)
-
-var diff;
-var randomNumber;
+function trynum(diff){
+    if (diff=="easy")
+        {return 7;}
+    else if (diff=="medium"){return 5;}
+    else if (diff=="hard"){return 3;}
+}
+var actualdiff ;//i just wanted to know the actual difficulty before i changed it so i declared a variable that i will need later
 const diffSelect=document.querySelector("#difficulty");
-diffSelect.addEventListener("change",()=>
-{diff=diffSelect.value;
-randomNumber = generate_Random(diff);
-console.log(randomNumber); 
-});
-var randomNumber1 = generate_Random("easy"); // Initialize with easy difficulty
-console.log("lepremier: "+randomNumber1); // Log the initial random number
+var diff=diffSelect.value;
+actualdiff=diff;
+ diffSelect.addEventListener("change",function(event){actualdiff=event.target.value;nb=undefined;});
+
+var randomNumber = generate_Random(diff);
+var numInput;
 const MyInput=document.querySelector("#press");
 MyInput.addEventListener("click",(event)=>{
-    event.preventDefault();
     
-    if(randomNumber==inputValue)
-    document.getElementById("output").textContent ="YOUR ANSWER IS CORRECT ,congrats";
-    else{document.getElementById("output").textContent ="YOUR ANSWER IS WRONG ,Try again";
+    numInput=document.querySelector("#num");
+    var inputValue=numInput.value;
+    
+    if(diff !==actualdiff){diff=actualdiff;
+    randomNumber = generate_Random(diff);
+       
+     }
+
+    if (nb === undefined) {
+        nb = trynum(diff);
+    }
+    
+    if(randomNumber==inputValue){document.getElementById("output").textContent ="YOUR ANSWER IS CORRECT ,congrats";
+        var im=document.getElementById("image1");
+        im.src="youwin.jpg";}
+    
+    else{nb--;
+    if(nb>0){document.getElementById("output").textContent =`YOUR ANSWER IS WRONG ,Try again you still have ${nb} chances`;}
+    else{document.getElementById("output").textContent=`All your answers were wrong ,the correct number was ${randomNumber}`;}
+    
+    
 
     }
 });
+
+const Retry=document.querySelector("#retry");
+Retry.addEventListener("click",()=>{numInput.value="";
+
+})
+const NEWGAME=document.querySelector("#new");
+NEWGAME.addEventListener("click",()=>{
+    var im=document.getElementById("image1");
+    im.src="OIP.jpg";
+    nb=undefined;document.getElementById("output").textContent="WELCOME TO A NEW GAME";var randomNumber = generate_Random(diffSelect.value);/*console.log("we are at:"+diffSelect.value);*/})
