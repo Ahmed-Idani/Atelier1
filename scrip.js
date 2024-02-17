@@ -55,6 +55,7 @@ Retry.addEventListener("click",()=>{numInput.value="";
 })
 const NEWGAME=document.querySelector("#new");
 NEWGAME.addEventListener("click",()=>{
+    randomNumber=generate_Random((document.querySelector("#difficulty")).value);
     var im=document.getElementById("image1");
     im.src="OIP.jpg";
-    nb=undefined;document.getElementById("output").textContent="WELCOME TO A NEW GAME";var randomNumber = generate_Random(diffSelect.value);/*console.log("we are at:"+diffSelect.value);*/})
+    nb=undefined;document.getElementById("output").textContent="WELCOME TO A NEW GAME";})
